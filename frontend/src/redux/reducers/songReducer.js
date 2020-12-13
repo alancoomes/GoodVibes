@@ -1,7 +1,7 @@
-function songReducer(state = { songs: [] }, action) {
+function songReducer(state = { all: [] }, action) {
     switch (action.type) {
         case 'FETCH_SONGS_SUCCESS':
-            return {...state, songs: action.payload};
+            return {...state, all: action.payload};
         default: 
         return state;
 
