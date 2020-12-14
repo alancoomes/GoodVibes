@@ -12,7 +12,7 @@ export const createSong = (data) => {
     return dispatch => {
         const song = {song: data}
         fetch('http://localhost:3000/songs', {
-            method: POST,
+            method: "POST",
             headers: {
                 "Content-Type": 'application/json'
             },

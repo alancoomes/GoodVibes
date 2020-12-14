@@ -28,6 +28,8 @@ class SongsForm extends Component {
             bpm: 0,
             lyrics: ""
         })
+        
+        this.props.history.push("/songs")
     }
 
     render(){

@@ -5,12 +5,12 @@ class SongsController < ApplicationController
     end 
 
     def show
-        song = Song.find_by_id(song_params])
+        song = Song.find_by_id(params[:id])
         render json: song
     end 
 
     def create 
-        song = Song.new(params[:song])
+        song = Song.new(song_params)
 
         if song.save 
             render json: song
