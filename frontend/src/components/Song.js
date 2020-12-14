@@ -6,6 +6,8 @@ export default function Song({ song }) {
             <h1>{song.name}</h1>
             {/* <h2>{song.album}</h2> */}
             <h2>{song.genre}</h2>
+            <h4>{song.vibe}</h4>
+            <p>{song.lyrics}</p>
         </div>
     )
 }

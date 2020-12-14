@@ -24,7 +24,7 @@ class AlbumsController < ApplicationController
             :name,
             :genre,
             :cover_art
-            :
         )
     end
+
 end
