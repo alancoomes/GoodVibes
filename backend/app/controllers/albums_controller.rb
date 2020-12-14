@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
 
-    before_action :set_album, only: (:show, :update, :destroy)
+    before_action :set_album, only: [:show, :update, :destroy]
 
     def index
         albums = Album.all 
@@ -8,7 +8,6 @@ class AlbumsController < ApplicationController
     end 
 
     def show
-        album = Album.find_by_id(params[:id])
         render json: album
     end 
 
@@ -23,7 +22,7 @@ class AlbumsController < ApplicationController
     end 
 
     def update
-        if album.update 
+        if album.update(album_params)
             render json: album 
         else 
             render album.errors.full_messages, status: :unprocessable_entity
