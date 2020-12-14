@@ -7,6 +7,7 @@ export default function Nav() {
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/songs">Songs</Link></li>
+                <li><Link to="/albums">Albums</Link></li>
                 <li><Link to="/songs/new">Create a Song</Link></li>
             </ul>
         </div>
