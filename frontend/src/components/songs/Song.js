@@ -1,6 +1,9 @@
 import React from 'react'
 
-export default function Song({ song }) {
+class Song extends React.Component {
+
+    render(){
+        ({ song }) = this.props
     return (
         <div>
             <h1>{song.name}</h1>
@@ -9,5 +12,8 @@ export default function Song({ song }) {
             <h4>{song.vibe}</h4>
             <p>{song.lyrics}</p>
         </div>
-    )
+        )
+    }
 }
+
+export default Song;
