@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import SongsIndex from './containers/SongsIndex';
 import AlbumsIndex from './containers/AlbumsIndex';
-import SongsForm from './components/SongsForm';
+import SongsForm from './components/songs/SongsForm';
+import AlbumsForm from './components/albums/AlbumsForm';
 import Nav from "./components/Nav"
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/songs" component={SongsIndex}/>
           <Route exact path="/albums" component={AlbumsIndex}/>
           <Route exact path="/songs/new" component={SongsForm}/>
+          <Route exact path="/albums/new" component={AlbumsForm}/>
         </Switch>
       </Router>
     </div>

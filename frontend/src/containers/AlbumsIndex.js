@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'; 
 import { getAlbums } from '../redux/actions/albumActions'
-import AlbumListItem from '../components/AlbumListItem'
+import AlbumListItem from '../components/albums/AlbumListItem'
 
 class AlbumsIndex extends Component {
 

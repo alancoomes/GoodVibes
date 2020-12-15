@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { createSong } from '../redux/actions/songActions';
+import { createSong } from '../../redux/actions/songActions';
 
 class SongsForm extends Component {
 
