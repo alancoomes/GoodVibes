@@ -31,7 +31,6 @@ class AlbumsController < ApplicationController
 
     def destroy
         album.destroy 
-
     end 
 
     private
