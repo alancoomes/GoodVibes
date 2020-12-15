@@ -18,9 +18,15 @@
 
 vibe = ["chill", "uplifting", "nostalgic", "psychedelic", "happy", "sad", "romantic", "marley-esque"]
 
+    album_1 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "")
+    album_2 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "")
+    album_3 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "")
+
+
 10.times do 
 
-    Song.create(name: Faker::Music::Prince.song, genre: Faker::Music.genre, lyrics: Faker::Music::Prince.lyric, bpm: rand() * 100, vibe: vibe.sample)
-
+    Song.create(name: Faker::Music::Prince.song, genre: Faker::Music.genre, lyrics: Faker::Music::Prince.lyric, bpm: rand() * 100, vibe: vibe.sample, album: [album_1, album_2, album_3].sample)
+    
 end 
+
 
