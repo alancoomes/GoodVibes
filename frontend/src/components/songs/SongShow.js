@@ -1,13 +1,13 @@
 import React from 'react'
 
-class Song extends React.Component {
+class SongShow extends React.Component {
 
     render(){
         ({ song }) = this.props
     return (
         <div>
             <h1>{song.name}</h1>
-            {/* <h2>{song.album}</h2> */}
+            <h2>{song.album}</h2>
             <h2>{song.genre}</h2>
             <h4>{song.vibe}</h4>
             <p>{song.lyrics}</p>
@@ -16,4 +16,4 @@ class Song extends React.Component {
     }
 }
 
-export default Song;
+export default SongShow;

@@ -15,8 +15,8 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route exact path="/songs" component={SongsIndex}/>
-          <Route exact path="/albums" component={AlbumsIndex}/>
+          <Route path="/songs" component={SongsIndex}/>
+          <Route path="/albums" component={AlbumsIndex}/>
           <Route exact path="/songs/new" component={SongsForm}/>
           <Route exact path="/albums/new" component={AlbumsForm}/>
         </Switch>
