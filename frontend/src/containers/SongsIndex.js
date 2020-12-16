@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'; 
 import { getSongs } from '../redux/actions/songActions'
 import SongListItem from '../components/songs/SongListItem'
+import { Route } from 'react-router-dom'
+import SongShow from '../components/songs/SongShow';
 
 class SongsIndex extends Component {
 
@@ -13,7 +15,8 @@ class SongsIndex extends Component {
         return (
             <div>
                 <h1>Songs Index</h1>
-                {this.props.songs.map(song => <SongListItem song={song}/>)}
+                {this.props.songs.map(song => <SongListItem key={song.id} song={song}/>)}
+                <Route exact path='/songs/:songId' render={routerProps => <SongShow {...routerProps} songs={this.props.songs} />}/>
             </div>
         )
     }

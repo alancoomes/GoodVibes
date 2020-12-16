@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function SongListItem({ song }) {
     return (
         <div>
-            {song.name} - {song.genre}
+            <li><Link key={song.id} to={`/songs/${song.id}`}>{song.name} - {song.genre}</Link></li>
         </div>
     )
 }

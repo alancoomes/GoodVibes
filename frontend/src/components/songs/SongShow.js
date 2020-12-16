@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-class SongShow extends React.Component {
+class SongShow extends Component {
 
     render(){
-        ({ song }) = this.props
+        debugger;
+        let song = this.props.songs[this.props.match.params.songId - 1]
     return (
         <div>
+            <h1>Song Show Component</h1>
             <h1>{song.name}</h1>
             <h2>{song.album}</h2>
             <h2>{song.genre}</h2>
