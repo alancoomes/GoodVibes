@@ -5,6 +5,12 @@ function albumReducer(state = { all: [] }, action) {
 
     case "CREATE_ALBUM_SUCCESS":
       return { ...state, all: state.all.concat(action.payload) };
+
+    case "DELETE_ALBUM_SUCCESS":
+      return {
+        ...state,
+        all: state.all.filter((album) => album.id !== Number(action.payload)),
+      };
     default:
       return state;
   }
