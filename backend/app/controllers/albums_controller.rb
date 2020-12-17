@@ -43,8 +43,7 @@ class AlbumsController < ApplicationController
         params.require(:album).permit(
             :name,
             :genre,
-            :cover_art,
-            :songs_attributes[:id, :name, :genre, :vibe, :bpm, :lyrics]
+            :cover_art
         )
     end
 

@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import AlbumsContainer from "./containers/AlbumsContainer";
 import SongsContainer from "./containers/SongsContainer";

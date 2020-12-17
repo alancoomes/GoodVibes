@@ -2,16 +2,20 @@ import React, { Component } from "react";
 
 class SongShow extends Component {
   render() {
-    debugger;
-    let song = this.props.songs[this.props.match.params.songId - 1];
+    let song = this.props.songs.filter(
+      (song) => song.id === Number(this.props.match.params.songId)
+    )[0];
+    let album = this.props.albums.filter(
+      (album) => album.id === song.album_id
+    )[0];
     return (
       <div>
         <h1>Song Show Component</h1>
-        <h1>{song.name}</h1>
-        <h2>{song.album}</h2>
-        <h2>{song.genre}</h2>
-        <h4>{song.vibe}</h4>
-        <p>{song.lyrics}</p>
+        <h1>Song: {song.name}</h1>
+        {/* <h2>Album: {album.name}</h2> */}
+        <h2>Genre: {song.genre}</h2>
+        <h4>Vibe: {song.vibe}</h4>
+        <p>Lyrics: {song.lyrics}</p>
       </div>
     );
   }

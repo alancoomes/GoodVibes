@@ -17,11 +17,10 @@ class AlbumShow extends Component {
             </li>
           ))}
         </div>
+        <h2>Add Songs to Album</h2>
       </div>
     );
   }
 }
 
 export default AlbumShow;
-
-// .map(song => <li><Link to={`/songs/${song.id}`} >{song.name}</Link></li>

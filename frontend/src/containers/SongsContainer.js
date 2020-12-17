@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getSongs } from "../redux/actions/songActions";
-import SongListItem from "../components/songs/SongListItem";
 import { Route, Switch } from "react-router-dom";
 import SongShow from "../components/songs/SongShow";
 import SongsForm from "../components/songs/SongsForm";
@@ -21,7 +20,11 @@ class SongsContainer extends Component {
             exact
             path="/songs/:songId"
             render={(routerProps) => (
-              <SongShow {...routerProps} songs={this.props.songs} />
+              <SongShow
+                {...routerProps}
+                songs={this.props.songs}
+                albums={this.props.albums}
+              />
             )}
           />
           <Route
@@ -36,9 +39,10 @@ class SongsContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ songs }) => {
+const mapStateToProps = ({ songs, albums }) => {
   return {
     songs: songs.all,
+    albums: albums.all,
   };
 };
 
