@@ -24,3 +24,14 @@ export const createAlbum = (data) => {
       );
   };
 };
+
+export const deleteAlbum = (id) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/albums/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(() => dispatch({ type: "DELETE_ALBUM_SUCCESS", payload: id }));
+  };
+};
