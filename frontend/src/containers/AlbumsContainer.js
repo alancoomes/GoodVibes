@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAlbums } from "../redux/actions/albumActions";
+import { getAlbums, deleteAlbum } from "../redux/actions/albumActions";
 import { Route, Switch } from "react-router-dom";
 import AlbumShow from "../components/albums/AlbumShow";
 import AlbumsForm from "../components/albums/AlbumsForm";
 import AlbumsIndex from "../components/albums/AlbumsIndex";
-import Nav from "../components/Nav";
-import Home from "../components/Home";
 
 class AlbumsContainer extends Component {
   componentDidMount() {
@@ -21,7 +19,11 @@ class AlbumsContainer extends Component {
           <Route
             path="/albums/:albumId"
             render={(routerProps) => (
-              <AlbumShow {...routerProps} albums={this.props.albums} />
+              <AlbumShow
+                {...routerProps}
+                albums={this.props.albums}
+                deleteAlbum={this.props.deleteAlbum}
+              />
             )}
           />{" "}
           <Route
@@ -42,4 +44,6 @@ const mapStateToProps = ({ albums }) => {
   };
 };
 
-export default connect(mapStateToProps, { getAlbums })(AlbumsContainer);
+export default connect(mapStateToProps, { getAlbums, deleteAlbum })(
+  AlbumsContainer
+);

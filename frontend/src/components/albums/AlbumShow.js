@@ -2,8 +2,21 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class AlbumShow extends Component {
+  handleOnClick = () => {
+    let album = this.props.albums.filter(
+      (album) => album.id === Number(this.props.match.params.albumId)
+    )[0];
+    if (album.songs) {
+      album.songs.map((song) => song.album_id === null);
+    }
+    this.props.deleteAlbum(album.id);
+    this.props.history.push("/albums");
+  };
+
   render() {
-    let album = this.props.albums[this.props.match.params.albumId - 1];
+    let album = this.props.albums.filter(
+      (album) => album.id === Number(this.props.match.params.albumId)
+    )[0];
     return (
       <div>
         <h1>Album Show Component</h1>
@@ -16,6 +29,9 @@ class AlbumShow extends Component {
               <Link to={`/songs/${song.id}`}>{song.name}</Link>
             </li>
           ))}
+          <button type="click" onClick={this.handleOnClick}>
+            Delete Album
+          </button>
         </div>
         <h2>Add Songs to Album</h2>
       </div>
