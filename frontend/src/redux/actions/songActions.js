@@ -22,3 +22,14 @@ export const createSong = (data) => {
       .then((song) => dispatch({ type: "CREATE_SONG_SUCCESS", payload: song }));
   };
 };
+
+export const deleteSong = (id) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/songs/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(() => dispatch({ type: "DELETE_SONG_SUCCESS", payload: id }));
+  };
+};

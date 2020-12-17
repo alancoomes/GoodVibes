@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getSongs } from "../redux/actions/songActions";
+import { getSongs, deleteSong } from "../redux/actions/songActions";
 import { Route, Switch } from "react-router-dom";
 import SongShow from "../components/songs/SongShow";
 import SongsForm from "../components/songs/SongsForm";
@@ -24,6 +24,7 @@ class SongsContainer extends Component {
                 {...routerProps}
                 songs={this.props.songs}
                 albums={this.props.albums}
+                deleteSong={this.props.deleteSong}
               />
             )}
           />
@@ -46,4 +47,6 @@ const mapStateToProps = ({ songs, albums }) => {
   };
 };
 
-export default connect(mapStateToProps, { getSongs })(SongsContainer);
+export default connect(mapStateToProps, { getSongs, deleteSong })(
+  SongsContainer
+);
