@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import AddSongsForm from "./AddSongsForm";
 
 class AlbumShow extends Component {
   handleOnClick = () => {
@@ -14,7 +15,10 @@ class AlbumShow extends Component {
 
   genChecks = () => {
     let songs = this.props.songs.filter((song) => !song.album_id);
-    return songs.map((song) => <input type="checkbox" value={song.name} />);
+    let checkboxes = songs.map((song) => (
+      <input type="checkbox" value={song.name} />
+    ));
+    debugger;
   };
 
   render() {
@@ -45,10 +49,7 @@ class AlbumShow extends Component {
           </button>
         </div>
         <h2>Add Songs to Album</h2>
-        <form>
-          {this.genChecks}
-          <input type="submit" value="Add Songs" />
-        </form>
+        <AddSongsForm songs={this.props.songs} />
       </div>
     );
   }
