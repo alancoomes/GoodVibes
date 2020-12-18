@@ -48,7 +48,6 @@ class AlbumShow extends Component {
               (album) => album.id === Number(this.props.match.params.albumId)
             )[0]
           }
-          addSongsToAlbum={this.props.addSongsToAlbum}
         />
       </div>
     );

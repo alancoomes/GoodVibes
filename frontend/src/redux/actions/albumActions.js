@@ -41,15 +41,15 @@ export const deleteAlbum = (id, history) => {
   };
 };
 
-export const addSongsToAlbum = (songs, albumId) => {
-  debugger;
+export const addSongsToAlbum = (songs, album) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/albums/${albumId}`, {
+    const updatedSongs = album.songs.concat(songs);
+    fetch(`http://localhost:3000/albums/${album.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(songs),
+      body: JSON.stringify({ songs_attributes: updatedSongs }),
     })
       .then((res) => res.json())
       .then((album) =>

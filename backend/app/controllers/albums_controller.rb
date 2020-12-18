@@ -22,6 +22,7 @@ class AlbumsController < ApplicationController
     end 
 
     def update
+        byebug
         if @album.update(album_params)
             render json: AlbumSerializer.new(@album).to_serialized_json 
         else 

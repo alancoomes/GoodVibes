@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  getAlbums,
-  deleteAlbum,
-  addSongsToAlbum,
-} from "../redux/actions/albumActions";
+import { getAlbums, deleteAlbum } from "../redux/actions/albumActions";
 import { Route, Switch } from "react-router-dom";
 import AlbumShow from "../components/albums/AlbumShow";
 import AlbumsForm from "../components/albums/AlbumsForm";
@@ -54,5 +50,4 @@ const mapStateToProps = ({ albums, songs }) => {
 export default connect(mapStateToProps, {
   getAlbums,
   deleteAlbum,
-  addSongsToAlbum,
 })(AlbumsContainer);
