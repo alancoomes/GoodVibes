@@ -9,7 +9,7 @@ function songReducer(state = { all: [] }, action) {
     case "DELETE_SONG_SUCCESS":
       return {
         ...state,
-        all: state.all.filter((song) => song.id !== Number(action.payload)),
+        all: state.all.filter((song) => song.id !== action.payload.id),
       };
     default:
       return state;

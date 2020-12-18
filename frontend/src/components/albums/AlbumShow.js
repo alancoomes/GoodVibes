@@ -9,8 +9,8 @@ class AlbumShow extends Component {
     if (album.songs) {
       album.songs.map((song) => song.album_id === null);
     }
-    this.props.deleteAlbum(album.id);
-    this.props.history.push("/albums");
+    this.props.deleteAlbum(album.id, this.props.history);
+    // this.props.history.push("/albums");
   };
 
   render() {

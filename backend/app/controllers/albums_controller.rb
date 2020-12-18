@@ -31,6 +31,7 @@ class AlbumsController < ApplicationController
 
     def destroy
         @album.destroy 
+        render json: @album
     end 
 
     private

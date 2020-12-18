@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
 class SongShow extends Component {
-  handleOnClick = () => {
-    this.props.deleteSong(this.props.match.params.songId);
-    this.props.history.push("/songs");
+  deleteOnClick = () => {
+    this.props.deleteSong(this.props.match.params.songId, this.props.history);
+    // this.props.history.push("/songs");
   };
+
+  editOnClick = () => {};
 
   render() {
     let song = this.props.songs.filter(
@@ -21,8 +23,11 @@ class SongShow extends Component {
         <h2>Genre: {song.genre}</h2>
         <h4>Vibe: {song.vibe}</h4>
         <p>Lyrics: {song.lyrics}</p>
-        <button type="click" onClick={this.handleOnClick}>
+        <button type="click" onClick={this.deleteOnClick}>
           Delete Song
+        </button>
+        <button type="click" onClick={this.editOnClick}>
+          Edit Song
         </button>
       </div>
     );

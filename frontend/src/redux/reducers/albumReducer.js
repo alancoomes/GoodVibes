@@ -9,7 +9,7 @@ function albumReducer(state = { all: [] }, action) {
     case "DELETE_ALBUM_SUCCESS":
       return {
         ...state,
-        all: state.all.filter((album) => album.id !== Number(action.payload)),
+        all: state.all.filter((album) => album.id !== action.payload.id),
       };
     default:
       return state;

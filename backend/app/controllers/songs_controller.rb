@@ -31,6 +31,7 @@ class SongsController < ApplicationController
 
     def destroy
         @song.destroy 
+        render json: @song
     end 
 
     private

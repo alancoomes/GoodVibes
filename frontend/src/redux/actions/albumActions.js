@@ -25,13 +25,18 @@ export const createAlbum = (data) => {
   };
 };
 
-export const deleteAlbum = (id) => {
+export const deleteAlbum = (id, history) => {
   return (dispatch) => {
     fetch(`http://localhost:3000/albums/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-    }).then(() => dispatch({ type: "DELETE_ALBUM_SUCCESS", payload: id }));
+    })
+      .then((res) => res.json())
+      .then((album) =>
+        dispatch({ type: "DELETE_ALBUM_SUCCESS", payload: album })
+      );
+    history.push("/albums");
   };
 };
