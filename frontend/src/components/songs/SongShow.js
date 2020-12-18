@@ -19,7 +19,7 @@ class SongShow extends Component {
       <div>
         <h1>Song Show Component</h1>
         <h1>Song: {song.name}</h1>
-        {/* <h2>Album: {album.name}</h2> */}
+        <h2>{album ? `Album: ${album.name}` : "No Album yet!"}</h2>
         <h2>Genre: {song.genre}</h2>
         <h4>Vibe: {song.vibe}</h4>
         <p>Lyrics: {song.lyrics}</p>
