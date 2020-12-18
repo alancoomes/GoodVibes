@@ -65,8 +65,7 @@ class SongsForm extends Component {
             value={this.state.bpm}
           />
           Lyrics:{" "}
-          <input
-            type="text"
+          <textarea
             name="lyrics"
             onChange={(e) => this.handleOnChange(e)}
             value={this.state.lyrics}

@@ -22,6 +22,7 @@ class AlbumsContainer extends Component {
               <AlbumShow
                 {...routerProps}
                 albums={this.props.albums}
+                songs={this.props.songs}
                 deleteAlbum={this.props.deleteAlbum}
               />
             )}
@@ -38,9 +39,10 @@ class AlbumsContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ albums }) => {
+const mapStateToProps = ({ albums, songs }) => {
   return {
     albums: albums.all,
+    songs: songs.all,
   };
 };
 

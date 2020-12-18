@@ -10,7 +10,6 @@ class AlbumShow extends Component {
       album.songs.map((song) => song.album_id === null);
     }
     this.props.deleteAlbum(album.id, this.props.history);
-    // this.props.history.push("/albums");
   };
 
   render() {
@@ -39,6 +38,12 @@ class AlbumShow extends Component {
           </button>
         </div>
         <h2>Add Songs to Album</h2>
+        {this.props.songs.map((song) => {
+          debugger;
+          if (!song.album_id) {
+            return song;
+          }
+        })}
       </div>
     );
   }
