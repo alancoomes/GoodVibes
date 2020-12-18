@@ -49,7 +49,14 @@ class AlbumShow extends Component {
           </button>
         </div>
         <h2>Add Songs to Album</h2>
-        <AddSongsForm songs={this.props.songs} />
+        <AddSongsForm
+          songs={this.props.songs.filter((song) => !song.album_id)}
+          album={
+            this.props.albums.filter(
+              (album) => album.id === Number(this.props.match.params.albumId)
+            )[0]
+          }
+        />
       </div>
     );
   }
