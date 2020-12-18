@@ -20,7 +20,12 @@ class AlbumShow extends Component {
     return (
       <div>
         <h1>Album Show Component</h1>
-        <img src={album.cover_art} alt="album cover art" />
+        <img
+          src={
+            album.cover_art ? album.cover_art : "http://placehold.it/500x325"
+          }
+          alt="album cover art"
+        />
         <h1>{album.name}</h1>
         <h4>{album.genre}</h4>
         <div>
