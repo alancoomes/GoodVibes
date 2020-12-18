@@ -13,14 +13,6 @@ class AlbumShow extends Component {
     this.props.deleteAlbum(album.id, this.props.history);
   };
 
-  genChecks = () => {
-    let songs = this.props.songs.filter((song) => !song.album_id);
-    let checkboxes = songs.map((song) => (
-      <input type="checkbox" value={song.name} />
-    ));
-    debugger;
-  };
-
   render() {
     let album = this.props.albums.filter(
       (album) => album.id === Number(this.props.match.params.albumId)
@@ -56,6 +48,7 @@ class AlbumShow extends Component {
               (album) => album.id === Number(this.props.match.params.albumId)
             )[0]
           }
+          addSongsToAlbum={this.props.addSongsToAlbum}
         />
       </div>
     );

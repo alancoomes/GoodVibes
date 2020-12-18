@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAlbums, deleteAlbum } from "../redux/actions/albumActions";
+import {
+  getAlbums,
+  deleteAlbum,
+  addSongsToAlbum,
+} from "../redux/actions/albumActions";
 import { Route, Switch } from "react-router-dom";
 import AlbumShow from "../components/albums/AlbumShow";
 import AlbumsForm from "../components/albums/AlbumsForm";
@@ -24,6 +28,7 @@ class AlbumsContainer extends Component {
                 albums={this.props.albums}
                 songs={this.props.songs}
                 deleteAlbum={this.props.deleteAlbum}
+                addSongsToAlbum={this.props.addSongsToAlbum}
               />
             )}
           />{" "}
@@ -46,6 +51,8 @@ const mapStateToProps = ({ albums, songs }) => {
   };
 };
 
-export default connect(mapStateToProps, { getAlbums, deleteAlbum })(
-  AlbumsContainer
-);
+export default connect(mapStateToProps, {
+  getAlbums,
+  deleteAlbum,
+  addSongsToAlbum,
+})(AlbumsContainer);

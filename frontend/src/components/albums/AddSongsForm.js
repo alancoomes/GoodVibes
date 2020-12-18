@@ -40,13 +40,13 @@ class AddSongsForm extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    debugger;
-    this.addSongstoAlbum(songs, albumId);
-    // Object.keys(this.state.checkboxes)
-    //   .filter((checkbox) => this.state.checkboxes[checkbox])
-    //   .forEach((checkbox) => {
-    //     console.log(checkbox, "is selected.");
-    //   });
+    const checked = Object.keys(this.state.checkboxes).filter(
+      (checkbox) => this.state.checkboxes[checkbox]
+    );
+    const addedSongs = this.props.songs.filter((song) =>
+      checked.includes(song.name)
+    );
+    this.props.addSongstoAlbum(addedSongs, this.props.album.id);
   };
 
   createCheckbox = (song) => (

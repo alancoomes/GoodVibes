@@ -42,6 +42,7 @@ export const deleteAlbum = (id, history) => {
 };
 
 export const addSongsToAlbum = (songs, albumId) => {
+  debugger;
   return (dispatch) => {
     fetch(`http://localhost:3000/albums/${albumId}`, {
       method: "PATCH",

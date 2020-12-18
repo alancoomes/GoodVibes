@@ -11,6 +11,9 @@ function albumReducer(state = { all: [] }, action) {
         ...state,
         all: state.all.filter((album) => album.id !== action.payload.id),
       };
+    case "ADD_SONGS_TO_ALBUM_SUCCESS":
+      debugger;
+    //   return { ...state, all:}
     default:
       return state;
   }
