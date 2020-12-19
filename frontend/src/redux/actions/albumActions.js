@@ -40,20 +40,3 @@ export const deleteAlbum = (id, history) => {
     history.push("/albums");
   };
 };
-
-export const addSongsToAlbum = (songs, album) => {
-  return (dispatch) => {
-    const updatedSongs = album.songs.concat(songs);
-    fetch(`http://localhost:3000/albums/${album.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ songs_attributes: updatedSongs }),
-    })
-      .then((res) => res.json())
-      .then((album) =>
-        dispatch({ type: "ADD_SONGS_TO_ALBUM_SUCCESS", payload: album })
-      );
-  };
-};

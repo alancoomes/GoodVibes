@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Checkbox from "../Checkbox";
 import { connect } from "react-redux";
-import { addSongsToAlbum } from "../../redux/actions/albumActions";
+import { addSongToAlbum } from "../../redux/actions/songActions";
 
 class AddSongsForm extends Component {
   state = {
@@ -48,7 +48,9 @@ class AddSongsForm extends Component {
     const addedSongs = this.props.songs.filter((song) =>
       checked.includes(song.name)
     );
-    this.props.addSongsToAlbum(addedSongs, this.props.album);
+    addedSongs.forEach((song) =>
+      this.props.addSongToAlbum(song, this.props.album)
+    );
   };
 
   createCheckbox = (song) => (
@@ -97,4 +99,4 @@ class AddSongsForm extends Component {
   }
 }
 
-export default connect(null, { addSongsToAlbum })(AddSongsForm);
+export default connect(null, { addSongToAlbum })(AddSongsForm);
