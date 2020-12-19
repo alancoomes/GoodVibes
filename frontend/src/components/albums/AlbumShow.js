@@ -15,6 +15,7 @@ class AlbumShow extends Component {
   };
 
   render() {
+    debugger;
     const album = this.props.albums.filter(
       (album) => album.id === Number(this.props.match.params.albumId)
     )[0];
