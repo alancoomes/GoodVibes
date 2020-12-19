@@ -46,7 +46,8 @@ class SongsController < ApplicationController
              :genre,
              :vibe,
              :bpm,
-             :lyrics
+             :lyrics,
+             :album_id
         )
     end 
 end
