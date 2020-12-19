@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AlbumListItem from "./AlbumListItem";
+import AlbumCard from "./AlbumCard";
 
 class AlbumsIndex extends Component {
   render() {
@@ -7,7 +7,7 @@ class AlbumsIndex extends Component {
       <div>
         <h1>Albums Index</h1>
         {this.props.albums.map((album) => (
-          <AlbumListItem key={album.id} album={album} />
+          <AlbumCard key={album.id} album={album} />
         ))}
       </div>
     );
