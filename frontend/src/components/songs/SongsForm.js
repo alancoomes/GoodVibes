@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createSong } from "../../redux/actions/songActions";
+import Button from "react-bootstrap/Button";
 
 class SongsForm extends Component {
   state = {
@@ -70,7 +71,9 @@ class SongsForm extends Component {
             onChange={(e) => this.handleOnChange(e)}
             value={this.state.lyrics}
           />
-          <input type="submit" value="Create Song" />
+          <Button type="submit" variant="primary">
+            Create Song
+          </Button>
         </form>
       </div>
     );

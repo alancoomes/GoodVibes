@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AddSongsForm from "./AddSongsForm";
+import Button from "react-bootstrap/Button";
 
 class AlbumShow extends Component {
   handleOnClick = () => {
@@ -36,9 +37,13 @@ class AlbumShow extends Component {
               </Link>
             </li>
           ))}
-          <button type="click" onClick={this.handleOnClick}>
+          <Button
+            type="click"
+            onClick={this.handleOnClick}
+            variant="outline-danger"
+          >
             Delete Album
-          </button>
+          </Button>
         </div>
         <h2>Add Songs to Album</h2>
         <AddSongsForm

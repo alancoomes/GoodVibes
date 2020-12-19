@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createAlbum } from "../../redux/actions/albumActions";
+import Button from "react-bootstrap/Button";
 
 class AlbumsForm extends Component {
   state = {
@@ -53,7 +54,9 @@ class AlbumsForm extends Component {
             onChange={(e) => this.handleOnChange(e)}
             value={this.state.cover_art}
           />
-          <input type="submit" value="Create Album" />
+          <Button type="submit" variant="primary">
+            Create Album
+          </Button>
         </form>
       </div>
     );

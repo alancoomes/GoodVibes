@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from "react-bootstrap/Button";
 
 class SongShow extends Component {
   deleteOnClick = () => {
@@ -23,12 +24,16 @@ class SongShow extends Component {
         <h2>Genre: {song.genre}</h2>
         <h4>Vibe: {song.vibe}</h4>
         <p>Lyrics: {song.lyrics}</p>
-        <button type="click" onClick={this.deleteOnClick}>
+        <Button
+          type="click"
+          onClick={this.deleteOnClick}
+          variant="outline-danger"
+        >
           Delete Song
-        </button>
-        <button type="click" onClick={this.editOnClick}>
+        </Button>
+        {/* <button type="click" onClick={this.editOnClick}>
           Edit Song
-        </button>
+        </button> */}
       </div>
     );
   }
