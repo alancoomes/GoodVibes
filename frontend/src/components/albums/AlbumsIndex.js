@@ -8,7 +8,7 @@ class AlbumsIndex extends Component {
   render() {
     return (
       <div>
-        <h1>Albums Index</h1>
+        <h1>Albums</h1>
         <Container fluid="sm">
           <Row>
             {this.props.albums.map((album) => (
