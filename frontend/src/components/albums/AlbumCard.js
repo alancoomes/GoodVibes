@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 export default function AlbumListItem({ album }) {
   return (
     <div>
-      <Card key={album.id} style={{ width: "18rem" }}>
+      <Card key={album.id} style={{ width: "16rem" }}>
         <Card.Img variant="top" src={album.cover_art} />
         <Card.Body>
           <Card.Title>{album.name}</Card.Title>

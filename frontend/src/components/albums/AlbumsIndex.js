@@ -9,7 +9,7 @@ class AlbumsIndex extends Component {
     return (
       <div>
         <h1>Albums Index</h1>
-        <Container fluid="md">
+        <Container fluid="sm">
           <Row>
             {this.props.albums.map((album) => (
               <AlbumCard key={album.id} album={album} />

@@ -18,9 +18,9 @@
 
 vibe = ["chill", "uplifting", "nostalgic", "psychedelic", "happy", "sad", "romantic", "marley-esque"]
 
-    album_1 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "")
-    album_2 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "")
-    album_3 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "")
+    album_1 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://i.pinimg.com/originals/b4/75/00/b4750046d94fed05d00dd849aa5f0ab7.jpg")
+    album_2 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://i2.wp.com/nyunews.com/wp-content/uploads/2019/10/CKF17E3UkAAl4km.jpg-large.jpeg?fit=1600%2C1600&ssl=1")
+    album_3 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sunset-retro-80%27s-cd-cover-art-template-design-2cc033e89001c5f3b65e3542cdb084de_screen.jpg?ts=1568024484")
 
 
 10.times do 
