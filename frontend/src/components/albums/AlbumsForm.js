@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createAlbum } from "../../redux/actions/albumActions";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 class AlbumsForm extends Component {
   state = {
@@ -31,33 +32,39 @@ class AlbumsForm extends Component {
   render() {
     return (
       <div>
-        <h1>Albums Form</h1>
-        <form onSubmit={(e) => this.handleOnSubmit(e)}>
-          Name:{" "}
-          <input
-            type="text"
-            name="name"
-            onChange={(e) => this.handleOnChange(e)}
-            value={this.state.name}
-          />
-          Genre:{" "}
-          <input
-            type="text"
-            name="genre"
-            onChange={(e) => this.handleOnChange(e)}
-            value={this.state.genre}
-          />
-          Cover Art(optional):{" "}
-          <input
-            type="text"
-            name="cover_art"
-            onChange={(e) => this.handleOnChange(e)}
-            value={this.state.cover_art}
-          />
+        <h1>Add An Album</h1>
+        <Form onSubmit={(e) => this.handleOnSubmit(e)}>
+          <Form.Group controlId="form.Name">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              name="name"
+              onChange={(e) => this.handleOnChange(e)}
+              value={this.state.name}
+            />
+          </Form.Group>
+          <Form.Group controlId="form.Genre">
+            <Form.Label>Genre</Form.Label>
+            <Form.Control
+              type="text"
+              name="genre"
+              onChange={(e) => this.handleOnChange(e)}
+              value={this.state.genre}
+            />
+          </Form.Group>
+          <Form.Group controlId="form.Cover_Art">
+            <Form.Label>Cover Art</Form.Label>
+            <Form.Control
+              type="text"
+              name="cover_art"
+              onChange={(e) => this.handleOnChange(e)}
+              value={this.state.cover_art}
+            />
+          </Form.Group>
           <Button type="submit" variant="primary">
             Create Album
           </Button>
-        </form>
+        </Form>
       </div>
     );
   }
