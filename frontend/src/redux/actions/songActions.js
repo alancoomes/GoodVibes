@@ -53,16 +53,16 @@ export const addSongToAlbum = (song, album) => {
   };
 };
 
-export const setFormDataForEdit = (song) => {
-  const tripFormData = {
-    name: song.name,
-    genre: song.genre,
-    vibe: song.vibe,
-    bpm: song.bpm,
-    lyrics: song.lyrics,
-  };
-  return {
-    type: "SET_FORM_DATA_FOR_EDIT",
-    tripFormData,
+export const updateSong = (song) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/songs/${song.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ song }),
+    })
+      .then((res) => res.json())
+      .then((song) => dispatch({ type: "UPDATE_SONG_SUCCESS", payload: song }));
   };
 };
