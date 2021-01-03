@@ -23,6 +23,8 @@ function songReducer(state = { all: [] }, action) {
           } else return song;
         }),
       };
+    case "SET_FORM_DATA_FOR_EDIT":
+      return;
     default:
       return state;
   }

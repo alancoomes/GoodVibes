@@ -1,39 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createSong } from "../../redux/actions/songActions";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/esm/Container";
 
-class SongsForm extends Component {
-  state = {
-    name: this.props.song ? this.props.song.name : "",
-    genre: this.props.song ? this.props.song.genre : "",
-    vibe: this.props.song ? this.props.song.vibe : "",
-    bpm: this.props.song ? this.props.song.bpm : 0,
-    lyrics: this.props.song ? this.props.song.lyrics : "",
-  };
-
-  handleOnChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  }
-
-  handleOnSubmit(e) {
-    e.preventDefault(e);
-    this.props.createSong(this.state);
-    this.setState({
-      name: "",
-      genre: "",
-      vibe: "",
-      bpm: 0,
-      lyrics: "",
-    });
-
-    this.props.history.push("/songs");
-  }
-
+class EditSongForm extends Component {
   render() {
     debugger;
     return (
@@ -97,4 +65,4 @@ class SongsForm extends Component {
   }
 }
 
-export default connect(null, { createSong })(SongsForm);
+export default connect(null, { updateSong })(EditSongForm);
