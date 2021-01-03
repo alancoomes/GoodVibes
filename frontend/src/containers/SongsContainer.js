@@ -12,6 +12,7 @@ class SongsContainer extends Component {
   }
 
   render() {
+    const { songs, albums } = this.props;
     return (
       <div>
         <Switch>
@@ -19,14 +20,19 @@ class SongsContainer extends Component {
           <Route
             exact
             path="/songs/:songId"
-            render={(routerProps) => (
-              <SongShow
-                {...routerProps}
-                songs={this.props.songs}
-                albums={this.props.albums}
-                deleteSong={this.props.deleteSong}
-              />
-            )}
+            render={(routerProps) => {
+              const song = songs.find(
+                (song) => song.id === parseInt(routerProps.match.params.songId)
+              );
+              return (
+                <SongShow
+                  {...routerProps}
+                  song={song}
+                  albums={this.props.albums}
+                  deleteSong={this.props.deleteSong}
+                />
+              );
+            }}
           />
           <Route
             path="/songs"

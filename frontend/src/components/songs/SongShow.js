@@ -10,12 +10,8 @@ class SongShow extends Component {
   editOnClick = () => {};
 
   render() {
-    let song = this.props.songs.filter(
-      (song) => song.id === Number(this.props.match.params.songId)
-    )[0];
-    let album = this.props.albums.filter(
-      (album) => album.id === song.album_id
-    )[0];
+    const song = this.props.song;
+    const album = this.props.albums.find((album) => album.id === song.album_id);
     return (
       <div>
         <h1>Song Show Component</h1>
