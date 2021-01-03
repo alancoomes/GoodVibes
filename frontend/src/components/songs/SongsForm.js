@@ -7,11 +7,11 @@ import Container from "react-bootstrap/esm/Container";
 
 class SongsForm extends Component {
   state = {
-    name: this.props.song ? this.props.song.name : "",
-    genre: this.props.song ? this.props.song.genre : "",
-    vibe: this.props.song ? this.props.song.vibe : "",
-    bpm: this.props.song ? this.props.song.bpm : 0,
-    lyrics: this.props.song ? this.props.song.lyrics : "",
+    name: "",
+    genre: "",
+    vibe: "",
+    bpm: 0,
+    lyrics: "",
   };
 
   handleOnChange(e) {

@@ -6,7 +6,7 @@ class EditSongForm extends Component {
     debugger;
     return (
       <div>
-        <h1>Add a Song</h1>
+        <h1>Edit Song</h1>
         <Container>
           <Form onSubmit={(e) => this.handleOnSubmit(e)}>
             <Form.Group containerId="form.songName">
