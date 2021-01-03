@@ -27,9 +27,9 @@ class SongShow extends Component {
         >
           Delete Song
         </Button>
-        {/* <button type="click" onClick={this.editOnClick}>
+        <Button href={`/songs/${song.id}/edit`} variant="outline-info">
           Edit Song
-        </button> */}
+        </Button>
       </div>
     );
   }

@@ -35,6 +35,23 @@ class SongsContainer extends Component {
             }}
           />
           <Route
+            exact
+            path="/songs/:songId/edit"
+            render={(routerProps) => {
+              const song = songs.find(
+                (song) => song.id === parseInt(routerProps.match.params.songId)
+              );
+              return (
+                <SongsForm
+                  {...routerProps}
+                  song={song}
+                  deleteSong={this.props.deleteSong}
+                />
+              );
+              kll;
+            }}
+          />
+          <Route
             path="/songs"
             render={(routerProps) => (
               <SongsIndex {...routerProps} songs={this.props.songs} />
