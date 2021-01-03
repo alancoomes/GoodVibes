@@ -6,6 +6,14 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 
 class EditSongForm extends Component {
+  state = {
+    name: this.props.song.name,
+    genre: this.props.song.genre,
+    vibe: this.props.song.vibe,
+    bpm: this.props.song.bpm,
+    lyrics: this.props.song.lyrics,
+  };
+
   handleOnChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
@@ -14,7 +22,7 @@ class EditSongForm extends Component {
 
   handleOnSubmit(e) {
     e.preventDefault(e);
-    this.props.createSong(this.state);
+    this.props.updateSong(this.state);
     this.setState({
       name: "",
       genre: "",
