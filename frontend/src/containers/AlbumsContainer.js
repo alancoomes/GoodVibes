@@ -12,21 +12,28 @@ class AlbumsContainer extends Component {
   }
 
   render() {
+    const { albums, songs } = this.props;
     return (
       <div>
         <Switch>
           <Route path="/albums/new" component={AlbumsForm} />
           <Route
             path="/albums/:albumId"
-            render={(routerProps) => (
-              <AlbumShow
-                {...routerProps}
-                albums={this.props.albums}
-                songs={this.props.songs}
-                deleteAlbum={this.props.deleteAlbum}
-                addSongsToAlbum={this.props.addSongsToAlbum}
-              />
-            )}
+            render={(routerProps) => {
+              const album = albums.find(
+                (album) =>
+                  album.id === parseInt(routerProps.match.params.albumId)
+              );
+              return (
+                <AlbumShow
+                  {...routerProps}
+                  album={album}
+                  songs={this.props.songs}
+                  deleteAlbum={this.props.deleteAlbum}
+                  addSongsToAlbum={this.props.addSongsToAlbum}
+                />
+              );
+            }}
           />{" "}
           <Route
             path="/albums"

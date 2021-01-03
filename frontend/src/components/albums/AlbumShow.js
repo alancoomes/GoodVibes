@@ -5,14 +5,11 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
-import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/esm/Card";
 
 class AlbumShow extends Component {
   handleOnClick = () => {
-    let album = this.props.albums.filter(
-      (album) => album.id === Number(this.props.match.params.albumId)
-    )[0];
+    const album = this.props.album;
     if (album.songs) {
       album.songs.map((song) => (song.album_id = null));
     }
@@ -20,9 +17,8 @@ class AlbumShow extends Component {
   };
 
   render() {
-    const album = this.props.albums.filter(
-      (album) => album.id === Number(this.props.match.params.albumId)
-    )[0];
+    debugger;
+    const album = this.props.album;
     return (
       <Container>
         <Row>
@@ -54,12 +50,7 @@ class AlbumShow extends Component {
             <h2>Add Songs to Album</h2>
             <AddSongsForm
               songs={this.props.songs.filter((song) => !song.album_id)}
-              album={
-                this.props.albums.filter(
-                  (album) =>
-                    album.id === Number(this.props.match.params.albumId)
-                )[0]
-              }
+              album={album}
             />
           </Col>
         </Row>
