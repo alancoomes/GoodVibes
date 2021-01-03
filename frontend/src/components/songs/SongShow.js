@@ -7,8 +7,6 @@ class SongShow extends Component {
     // this.props.history.push("/songs");
   };
 
-  editOnClick = () => {};
-
   render() {
     const song = this.props.song;
     const album = this.props.albums.find((album) => album.id === song.album_id);

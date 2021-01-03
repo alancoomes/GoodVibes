@@ -52,3 +52,17 @@ export const addSongToAlbum = (song, album) => {
       );
   };
 };
+
+export const setFormDataForEdit = (song) => {
+  const tripFormData = {
+    name: song.name,
+    genre: song.genre,
+    vibe: song.vibe,
+    bpm: song.bpm,
+    lyrics: song.lyrics,
+  };
+  return {
+    type: "SET_FORM_DATA_FOR_EDIT",
+    tripFormData,
+  };
+};
