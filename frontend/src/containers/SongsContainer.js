@@ -41,14 +41,7 @@ class SongsContainer extends Component {
               const song = songs.find(
                 (song) => song.id === parseInt(routerProps.match.params.songId)
               );
-              return (
-                <SongsForm
-                  {...routerProps}
-                  song={song}
-                  deleteSong={this.props.deleteSong}
-                />
-              );
-              kll;
+              return <EditSongForm {...routerProps} song={song} />;
             }}
           />
           <Route
