@@ -42,7 +42,6 @@ class AddSongsForm extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    debugger;
     const checked = Object.keys(this.state.checkboxes).filter(
       (checkbox) => this.state.checkboxes[checkbox]
     );

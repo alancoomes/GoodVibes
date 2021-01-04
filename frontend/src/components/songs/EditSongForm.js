@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createSong } from "../../redux/actions/songActions";
+import { updateSong } from "../../redux/actions/songActions";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 
-class SongsForm extends Component {
+class EditSongForm extends Component {
   state = {
     name: "",
     genre: "",
@@ -13,6 +13,19 @@ class SongsForm extends Component {
     bpm: 0,
     lyrics: "",
   };
+
+  componentDidMount() {
+    const song = this.props.songs.find(
+      (song) => song.id === parseInt(this.props.match.params.songId)
+    );
+    this.setState({
+      name: song.name,
+      genre: song.genre,
+      vibe: song.vibe,
+      bpm: song.bpm,
+      lyrics: song.lyrics,
+    });
+  }
 
   handleOnChange(e) {
     this.setState({
@@ -22,7 +35,11 @@ class SongsForm extends Component {
 
   handleOnSubmit(e) {
     e.preventDefault(e);
-    this.props.createSong(this.state);
+    this.props.updateSong(
+      this.state,
+      this.props.match.params.songId,
+      this.props.history
+    );
     this.setState({
       name: "",
       genre: "",
@@ -30,14 +47,12 @@ class SongsForm extends Component {
       bpm: 0,
       lyrics: "",
     });
-
-    this.props.history.push("/songs");
   }
 
   render() {
     return (
       <div>
-        <h1>Add a Song</h1>
+        <h1>Edit Song</h1>
         <Container>
           <Form onSubmit={(e) => this.handleOnSubmit(e)}>
             <Form.Group controlId="form.songName">
@@ -87,7 +102,7 @@ class SongsForm extends Component {
               />
             </Form.Group>
             <Button type="submit" variant="primary">
-              Create Song
+              Edit Song
             </Button>
           </Form>
         </Container>
@@ -96,4 +111,10 @@ class SongsForm extends Component {
   }
 }
 
-export default connect(null, { createSong })(SongsForm);
+const mapStateToProps = ({ songs }) => {
+  return {
+    songs: songs.all,
+  };
+};
+
+export default connect(mapStateToProps, { updateSong })(EditSongForm);

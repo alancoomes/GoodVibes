@@ -23,6 +23,22 @@ function songReducer(state = { all: [] }, action) {
           } else return song;
         }),
       };
+    case "UPDATE_SONG_SUCCESS":
+      return {
+        ...state,
+        all: state.all.map((song) => {
+          if (song.id === action.payload.id) {
+            return {
+              ...song,
+              name: action.payload.name,
+              genre: action.payload.genre,
+              vibe: action.payload.vibe,
+              bpm: action.payload.bpm,
+              lyrics: action.payload.lyrics,
+            };
+          } else return song;
+        }),
+      };
     default:
       return state;
   }

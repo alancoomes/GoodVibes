@@ -17,7 +17,6 @@ class AlbumShow extends Component {
   };
 
   render() {
-    debugger;
     const album = this.props.album;
     return (
       <Container>

@@ -7,8 +7,6 @@ class SongShow extends Component {
     // this.props.history.push("/songs");
   };
 
-  editOnClick = () => {};
-
   render() {
     const song = this.props.song;
     const album = this.props.albums.find((album) => album.id === song.album_id);
@@ -27,9 +25,9 @@ class SongShow extends Component {
         >
           Delete Song
         </Button>
-        {/* <button type="click" onClick={this.editOnClick}>
+        <Button href={`/songs/${song.id}/edit`} variant="outline-info">
           Edit Song
-        </button> */}
+        </Button>
       </div>
     );
   }
