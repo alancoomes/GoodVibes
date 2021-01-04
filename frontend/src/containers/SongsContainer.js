@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import SongShow from "../components/songs/SongShow";
 import SongsForm from "../components/songs/SongsForm";
 import SongsIndex from "../components/songs/SongsIndex";
+import EditSongForm from "../components/songs/EditSongForm";
 
 class SongsContainer extends Component {
   componentDidMount() {
@@ -21,13 +22,14 @@ class SongsContainer extends Component {
             exact
             path="/songs/:songId"
             render={(routerProps) => {
-              const song = songs.find(
+              let song = songs.find(
                 (song) => song.id === parseInt(routerProps.match.params.songId)
               );
               return (
                 <SongShow
                   {...routerProps}
                   song={song}
+                  songs={songs}
                   albums={this.props.albums}
                   deleteSong={this.props.deleteSong}
                 />
@@ -38,10 +40,11 @@ class SongsContainer extends Component {
             exact
             path="/songs/:songId/edit"
             render={(routerProps) => {
-              const song = songs.find(
+              let songEdit = songs.find(
                 (song) => song.id === parseInt(routerProps.match.params.songId)
               );
-              return <EditSongForm {...routerProps} song={song} />;
+              console.log(songEdit);
+              return <EditSongForm {...routerProps} />;
             }}
           />
           <Route

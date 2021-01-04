@@ -7,12 +7,26 @@ import Container from "react-bootstrap/esm/Container";
 
 class EditSongForm extends Component {
   state = {
-    name: this.props.song.name,
-    genre: this.props.song.genre,
-    vibe: this.props.song.vibe,
-    bpm: this.props.song.bpm,
-    lyrics: this.props.song.lyrics,
+    name: "",
+    genre: "",
+    vibe: "",
+    bpm: 0,
+    lyrics: "",
   };
+
+  componentDidMount() {
+    const song = this.props.songs.find(
+      (song) => song.id === parseInt(this.props.match.params.songId)
+    );
+    debugger;
+    this.setState({
+      name: song.name,
+      genre: song.genre,
+      vibe: song.vibe,
+      bpm: song.bpm,
+      lyrics: song.lyrics,
+    });
+  }
 
   handleOnChange(e) {
     this.setState({
@@ -33,7 +47,6 @@ class EditSongForm extends Component {
   }
 
   render() {
-    debugger;
     return (
       <div>
         <h1>Edit Song</h1>
@@ -95,4 +108,10 @@ class EditSongForm extends Component {
   }
 }
 
-export default connect(null, { updateSong })(EditSongForm);
+const mapStateToProps = ({ songs }) => {
+  return {
+    songs: songs.all,
+  };
+};
+
+export default connect(mapStateToProps, { updateSong })(EditSongForm);
