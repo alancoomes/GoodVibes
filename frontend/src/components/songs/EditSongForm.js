@@ -52,7 +52,7 @@ class EditSongForm extends Component {
         <h1>Edit Song</h1>
         <Container>
           <Form onSubmit={(e) => this.handleOnSubmit(e)}>
-            <Form.Group containerId="form.songName">
+            <Form.Group controlId="form.songName">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
@@ -61,7 +61,7 @@ class EditSongForm extends Component {
                 value={this.state.name}
               />
             </Form.Group>
-            <Form.Group containerId="form.songGenre">
+            <Form.Group controlId="form.songGenre">
               <Form.Label>Genre</Form.Label>
               <Form.Control
                 type="text"
@@ -70,7 +70,7 @@ class EditSongForm extends Component {
                 value={this.state.genre}
               />
             </Form.Group>
-            <Form.Group containerId="form.songVibe">
+            <Form.Group controlId="form.songVibe">
               <Form.Label>Vibe</Form.Label>
               <Form.Control
                 type="text"
@@ -79,7 +79,7 @@ class EditSongForm extends Component {
                 value={this.state.vibe}
               />
             </Form.Group>
-            <Form.Group containerId="form.songBPM">
+            <Form.Group controlId="form.songBPM">
               <Form.Label>BPM (beats per minute)</Form.Label>
               <Form.Control
                 type="number"
@@ -88,7 +88,7 @@ class EditSongForm extends Component {
                 value={this.state.bpm}
               />
             </Form.Group>
-            <Form.Group containerId="form.songLyrics">
+            <Form.Group controlId="form.songLyrics">
               <Form.Label>Lyrics</Form.Label>
               <Form.Control
                 as="textarea"
