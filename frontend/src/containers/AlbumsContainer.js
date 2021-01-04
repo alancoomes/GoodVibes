@@ -12,7 +12,7 @@ class AlbumsContainer extends Component {
   }
 
   render() {
-    const { albums, songs } = this.props;
+    const { albums } = this.props;
     return (
       <div>
         <Switch>

@@ -13,7 +13,7 @@ class SongsContainer extends Component {
   }
 
   render() {
-    const { songs, albums } = this.props;
+    const { songs } = this.props;
     return (
       <div>
         <Switch>
@@ -40,10 +40,6 @@ class SongsContainer extends Component {
             exact
             path="/songs/:songId/edit"
             render={(routerProps) => {
-              let songEdit = songs.find(
-                (song) => song.id === parseInt(routerProps.match.params.songId)
-              );
-              console.log(songEdit);
               return <EditSongForm {...routerProps} />;
             }}
           />
