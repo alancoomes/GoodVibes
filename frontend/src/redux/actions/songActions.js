@@ -53,9 +53,9 @@ export const addSongToAlbum = (song, album) => {
   };
 };
 
-export const updateSong = (song) => {
+export const updateSong = (song, id, history) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/songs/${song.id}`, {
+    fetch(`http://localhost:3000/songs/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -64,5 +64,6 @@ export const updateSong = (song) => {
     })
       .then((res) => res.json())
       .then((song) => dispatch({ type: "UPDATE_SONG_SUCCESS", payload: song }));
+    history.push(`/songs/${id}`);
   };
 };

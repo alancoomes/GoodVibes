@@ -18,7 +18,6 @@ class EditSongForm extends Component {
     const song = this.props.songs.find(
       (song) => song.id === parseInt(this.props.match.params.songId)
     );
-    debugger;
     this.setState({
       name: song.name,
       genre: song.genre,
@@ -36,7 +35,11 @@ class EditSongForm extends Component {
 
   handleOnSubmit(e) {
     e.preventDefault(e);
-    this.props.updateSong(this.state);
+    this.props.updateSong(
+      this.state,
+      this.props.match.params.songId,
+      this.props.history
+    );
     this.setState({
       name: "",
       genre: "",
@@ -99,7 +102,7 @@ class EditSongForm extends Component {
               />
             </Form.Group>
             <Button type="submit" variant="primary">
-              Create Song
+              Edit Song
             </Button>
           </Form>
         </Container>
