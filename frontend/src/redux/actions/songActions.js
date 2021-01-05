@@ -9,7 +9,9 @@ export const getSongs = () => {
 };
 
 export const createSong = (data) => {
+  console.log("b");
   return (dispatch) => {
+    console.log("c");
     const song = { song: data };
     fetch("http://localhost:3000/songs", {
       method: "POST",
@@ -19,8 +21,13 @@ export const createSong = (data) => {
       body: JSON.stringify(song),
     })
       .then((res) => res.json())
-      .then((song) => dispatch({ type: "CREATE_SONG_SUCCESS", payload: song }));
+      .then((song) => {
+        console.log("d");
+        return dispatch({ type: "CREATE_SONG_SUCCESS", payload: song });
+      });
+    console.log("e");
   };
+  console.log("f");
 };
 
 export const deleteSong = (id, history) => {
