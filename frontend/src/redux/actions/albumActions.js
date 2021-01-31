@@ -1,6 +1,6 @@
 export const getAlbums = () => {
   return (dispatch) => {
-    fetch("http://localhost:3000/albums")
+    fetch("http://localhost:3000/api/v1/albums")
       .then((res) => res.json())
       .then((albums) =>
         dispatch({ type: "FETCH_ALBUMS_SUCCESS", payload: albums })
@@ -11,7 +11,7 @@ export const getAlbums = () => {
 export const createAlbum = (data) => {
   return (dispatch) => {
     const album = { album: data };
-    fetch("http://localhost:3000/albums", {
+    fetch("http://localhost:3000/api/v1/albums", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export const createAlbum = (data) => {
 
 export const deleteAlbum = (id, history) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/albums/${id}`, {
+    fetch(`http://localhost:3000/api/v1/albums/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

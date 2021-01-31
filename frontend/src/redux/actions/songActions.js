@@ -1,6 +1,6 @@
 export const getSongs = () => {
   return (dispatch) => {
-    fetch("http://localhost:3000/songs")
+    fetch("http://localhost:3000/api/v1/songs")
       .then((res) => res.json())
       .then((songs) =>
         dispatch({ type: "FETCH_SONGS_SUCCESS", payload: songs })
@@ -9,11 +9,9 @@ export const getSongs = () => {
 };
 
 export const createSong = (data) => {
-  console.log("b");
   return (dispatch) => {
-    console.log("c");
     const song = { song: data };
-    fetch("http://localhost:3000/songs", {
+    fetch("http://localhost:3000/api/v1/songs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,17 +20,14 @@ export const createSong = (data) => {
     })
       .then((res) => res.json())
       .then((song) => {
-        console.log("d");
         return dispatch({ type: "CREATE_SONG_SUCCESS", payload: song });
       });
-    console.log("e");
   };
-  console.log("f");
 };
 
 export const deleteSong = (id, history) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/songs/${id}`, {
+    fetch(`http://localhost:3000/api/v1/songs/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +41,7 @@ export const deleteSong = (id, history) => {
 
 export const addSongToAlbum = (song, album) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/songs/${song.id}`, {
+    fetch(`http://localhost:3000/api/v1/songs/${song.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +57,7 @@ export const addSongToAlbum = (song, album) => {
 
 export const updateSong = (song, id, history) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/songs/${id}`, {
+    fetch(`http://localhost:3000/api/v1/songs/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
