@@ -22,9 +22,7 @@ class SongsForm extends Component {
 
   handleOnSubmit(e) {
     e.preventDefault(e);
-    console.log("a");
     this.props.createSong(this.state);
-    console.log("g");
     this.setState({
       name: "",
       genre: "",
