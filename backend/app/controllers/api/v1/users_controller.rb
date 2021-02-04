@@ -23,7 +23,6 @@ class Api::V1::UsersController < ApplicationController
       if @user.save
         render json: UserSerializer.new(@user).to_serialized_json
       else
-        render json: @user.errors, status: :unprocessable_entity
         render @user.errors.full_messages, status: :unprocessable_entity
       end
     end
@@ -57,6 +56,10 @@ class Api::V1::UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :name, :password_digest)
+      params.require(:user).permit(
+        :username, 
+        :name, 
+        :password_digest
+      )
     end
-end
+
