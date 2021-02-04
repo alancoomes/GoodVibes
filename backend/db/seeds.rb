@@ -17,7 +17,7 @@
 # Faker::Music.genre #=> "Rock"
 
 vibe = ["chill", "uplifting", "nostalgic", "psychedelic", "happy", "sad", "romantic", "marley-esque"]
-alan = User.create(username: "alancoomes", nam: "Alan Coomes", password_digest: )
+user = User.new(username: k"alancoomes", name: "Alan Coomes", password: "JackJohnson")
 
     album_1 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://i.pinimg.com/originals/b4/75/00/b4750046d94fed05d00dd849aa5f0ab7.jpg", user: alan)
     album_2 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://i2.wp.com/nyunews.com/wp-content/uploads/2019/10/CKF17E3UkAAl4km.jpg-large.jpeg?fit=1600%2C1600&ssl=1", user: alan)
@@ -26,7 +26,7 @@ alan = User.create(username: "alancoomes", nam: "Alan Coomes", password_digest: 
 
 10.times do 
 
-    Song.create(name: Faker::Music::Prince.song, genre: Faker::Music.genre, lyrics: Faker::Music::Prince.lyric, bpm: rand() * 100, vibe: vibe.sample, album: [album_1, album_2, album_3].sample, user: user: alan)
+    Song.create(name: Faker::Music::Prince.song, genre: Faker::Music.genre, lyrics: Faker::Music::Prince.lyric, bpm: rand() * 100, vibe: vibe.sample, album: [album_1, album_2, album_3].sample, user: alan)
     
 end 
 
