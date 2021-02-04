@@ -17,16 +17,19 @@
 # Faker::Music.genre #=> "Rock"
 
 vibe = ["chill", "uplifting", "nostalgic", "psychedelic", "happy", "sad", "romantic", "marley-esque"]
+alan = User.create(username: "alancoomes", nam: "Alan Coomes", password_digest: )
 
-    album_1 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://i.pinimg.com/originals/b4/75/00/b4750046d94fed05d00dd849aa5f0ab7.jpg")
-    album_2 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://i2.wp.com/nyunews.com/wp-content/uploads/2019/10/CKF17E3UkAAl4km.jpg-large.jpeg?fit=1600%2C1600&ssl=1")
-    album_3 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sunset-retro-80%27s-cd-cover-art-template-design-2cc033e89001c5f3b65e3542cdb084de_screen.jpg?ts=1568024484")
+    album_1 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://i.pinimg.com/originals/b4/75/00/b4750046d94fed05d00dd849aa5f0ab7.jpg", user: alan)
+    album_2 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://i2.wp.com/nyunews.com/wp-content/uploads/2019/10/CKF17E3UkAAl4km.jpg-large.jpeg?fit=1600%2C1600&ssl=1", user: alan)
+    album_3 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sunset-retro-80%27s-cd-cover-art-template-design-2cc033e89001c5f3b65e3542cdb084de_screen.jpg?ts=1568024484", user: alan)
 
 
 10.times do 
 
-    Song.create(name: Faker::Music::Prince.song, genre: Faker::Music.genre, lyrics: Faker::Music::Prince.lyric, bpm: rand() * 100, vibe: vibe.sample, album: [album_1, album_2, album_3].sample)
+    Song.create(name: Faker::Music::Prince.song, genre: Faker::Music.genre, lyrics: Faker::Music::Prince.lyric, bpm: rand() * 100, vibe: vibe.sample, album: [album_1, album_2, album_3].sample, user: user: alan)
     
 end 
+
+
 
 
