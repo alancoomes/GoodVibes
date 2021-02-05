@@ -18,6 +18,7 @@
 
 vibe = ["chill", "uplifting", "nostalgic", "psychedelic", "happy", "sad", "romantic", "marley-esque"]
 user = User.new(username: "alancoomes", name: "Alan Coomes", password: "JackJohnson")
+user.save
 
     album_1 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://i.pinimg.com/originals/b4/75/00/b4750046d94fed05d00dd849aa5f0ab7.jpg", user: user)
     album_2 = Album.create(name: Faker::Music::Prince.album, genre: Faker::Music.genre, cover_art: "https://i2.wp.com/nyunews.com/wp-content/uploads/2019/10/CKF17E3UkAAl4km.jpg-large.jpeg?fit=1600%2C1600&ssl=1", user: user)
