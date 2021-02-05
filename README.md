@@ -1,4 +1,4 @@
-## Mixaholic
+## Good Vibes
 
 This is a SPA (single page application) webpage that allows users to craete their own personal songs and curate customized albums for release. A user can create songs, albums, and add songs to albums.
 
