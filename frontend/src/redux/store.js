@@ -4,6 +4,7 @@ import songReducer from "./reducers/songReducer";
 import albumReducer from "./reducers/albumReducer";
 import userReducer from "./reducers/userReducer";
 import currentUser from "./reducers/currentUser.js";
+import loginForm from "./reducers/loginForm.js";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   albums: albumReducer,
   users: userReducer,
   currentUser,
+  loginForm,
 });
 
 const persistConfig = {
